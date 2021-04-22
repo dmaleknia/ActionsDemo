@@ -1,0 +1,16 @@
+name: Label issues
+on:
+  issues:
+    types:
+      - closed
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Label issues
+        uses: andymckay/labeler@1.0.2
+        with:
+          add-labels: "solved"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
